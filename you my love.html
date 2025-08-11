@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I LOVE YOU</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* cegah scroll */
+    background: black;
+    font-family: Arial, sans-serif;
+    position: fixed; /* kunci posisi */
+    top: 0;
+    left: 0;
+  }
+  .text {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 6vw; /* ukuran otomatis sesuai lebar HP */
+    color: pink;
+    text-shadow: 0 0 10px #ff69b4;
+    animation: move 8s linear infinite;
+  }
+  @keyframes move {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+  }
+  .heart {
+    position: absolute;
+    font-size: 5vw;
+    color: red;
+    animation: float 5s ease-in infinite;
+  }
+  @keyframes float {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+  }
+  audio {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 999;
+  }
+</style>
+</head>
+<body>
+
+<audio controls autoplay loop>
+  <source src="https://tt.sf-converter.com/get?payload=tlZ9SbWLFxffBy~EYq4PBZW0zvjpRME0iVkMGldKaGjQJaucBvCMGwp7YhhOV3PGyWX8sSHhbTjkA9M2J8HOvivn0tu10Xw8NIkNsaUt3Q55RYW2tkMBbRZMJ8zVY8gcmoHrJ2pLuRg4XhvDlXDHxnEKIkLFrxtOnydokwr36syBeJtYxsTwYAwR75U8ooojNLrBDOlh4g1DekA5QDbQN24T4Ztx2nR8zSCachUKHawJPqxJ7ojVxXt7sqCiN-WId-syZf8GZmHAft8FXLQe4ahD0NIJ2gfN4cjEH2w1m5X0ElSWgXBQPdzUAh5tTVLd779~d6KVCHbeTP96HQ0m~T7Q~MuEprAqWUxEIw1bXkNqkxgMWdMXI08b0mE6aKK28nSieAJ2jcdKFdgL-GYTNx8~zS1K4dKh8Tgwqd6ozuMauabqEReVygxMxY1G0w4Pa-HYSmoeA16C97xC2t6KUuHIewZ~o-GD5OPYTcNEBEKejVa60vHWIbzxbW-77onXs2Kbaw~CuqRcakKDEIXc14RBzx5usBrYzWZSXM3Lk6rdn1FWkcU6Mrb-wd1F10AAC6WEPbiS0IMN9ZSjWxakO5dB85qrjTOmKRmks91s2bJ-kfk2az__*2ba15babd6e29e55*1*1754739498" type="audio/mpeg">
+</audio>
+
+<script>
+  // Kunci layar supaya nggak bisa di scroll di HP
+  document.body.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+  }, { passive: false });
+
+  function createText() {
+    const text = document.createElement("div");
+    text.className = "text";
+    text.innerHTML = "I LOVE YOU ❤️";
+    text.style.left = Math.random() * 100 + "vw"; // biar tetep di layar
+    text.style.animationDuration = (5 + Math.random() * 3) + "s";
+    document.body.appendChild(text);
+    setTimeout(() => { text.remove(); }, 8000);
+  }
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 5000);
+  }
+
+  setInterval(createText, 500);
+  setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
