@@ -1,0 +1,96 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I LOVE YOU</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: black;
+    font-family: Arial, sans-serif;
+    position: fixed; 
+    top: 0;
+    left: 0;
+  }
+  
+  .text {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 6vw;
+    color: pink;
+    text-shadow: 0 0 10px #ff69b4;
+    animation: move 8s linear infinite;
+  }
+  
+  @keyframes move {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+  }
+  .heart {
+    position: absolute;
+    font-size: 5vw;
+    color: whitesmoke;
+    animation: float 5s ease-in infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+  }
+  
+  audio {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+  }
+  
+</style>
+</head>
+<body>
+
+<audio controls autoplay loop>
+  <source src="https://tt.sf-converter.com/get?payload=tlZ9YbbWFSffzLE3KtQJ1eKmXSseGRTEkdLAOTNb5HOHHZPGvFBIQsTuuWQt7HM-5w~Gdj1resGeHR03ot0tWsPHi6yU2jMGYkgEUBWrpa~GdWYvcJnC8IVXKN1lvOvlggaSdWJGEpuBirQfoRJgW8~Rdj1ei7OFoG79WiC-C-N6Vq3yotbWCM0Fu61yVDyMFemTKbRGqJ-YwPcpb3K5s-L32u4QLCNS7EKBj4Yu32wqir964Tl2b3S0MDPrub5yV8P8JZ-8KfMGYcCBnOif-sX-AEWWicAWrBEgJwxSpw8m4rOxpvXoWLWfYyqE79wNWOz~wBVqVKy~BKd95~d~53EDYtd16PqifNIDrO-j0kzWdaUdx1MxzvumckzQ3~6qlucQvZZweefRRLYNET3yCQmin8vGiAL8J6PVH2p9ozzk09o6q02Zq29XudauvRLTN6FyW6qJOCrSmb6aaUTdmgFLLpeK2YyYh4zy~d4rLBKQYYXeGXXvO0zKIr7xppqXyheCmUDeVG3jKqOa5IrcGXavvmghVabKO~evchBh2wcI9kGibEc67spl1-tpQkgQyFbAkYPnj-TIDktIchT0HAHRKFKIF4YfaVQ9UIraww8EqMjpVZ__*6ccd61a7248aa0a3*1*1754823812" type="audio/mpeg">
+</audio>
+
+<script>
+  document.body.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+  }, { passive: false });
+
+  function createText() {
+    const text = document.createElement("div");
+    text.className = "text";
+    text.innerHTML = "I LOVE YOU 🤍";
+    text.style.left = Math.random() * 100 + "vw";
+    
+    text.style.animationDuration = (5 + Math.random() * 3) + "s";
+    document.body.appendChild(text);
+    setTimeout(() => { text.remove(); }, 8000);
+  }
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "🤍";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 5000);
+  }
+
+  setInterval(createText, 500);
+  setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
